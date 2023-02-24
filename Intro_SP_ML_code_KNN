@@ -21,4 +21,3 @@ predictions = model.predict(X_test)
 # Evaluate the performance of the model
 confusion_matrix(y_test, predictions)
 
-# Visualize the feature importance (not applicable for KNN)
