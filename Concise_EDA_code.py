@@ -22,9 +22,6 @@ Finally, it plots scatter plots of the numerical columns against the target vari
 using the pairplot function from the Seaborn library, which shows the distribution and
 relationships between each variable and the target variable in a compact and informative way.
 
-These additional data cleaning and visualization steps help to ensure the data is high
-quality and informative, and prepare it for further analysis and modeling.
-
 """
 
 import pandas as pd
