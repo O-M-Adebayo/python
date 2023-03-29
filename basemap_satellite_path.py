@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-blob_df = pd.read_csv(r'C:\Users\Usuario\Desktop\Doctorate_INPE\Publication\CAR-NASRDA\Data/blob_data_2532019.csv')
+blob_df = pd.read_csv(r'C:\Data/blob_data_2532019.csv')
 
 #print(blob_df.head())
 
@@ -46,6 +46,6 @@ plt.text(xpt1, ypt1, '$\\bf{NASRDA}$', fontsize=8)
 m.plot(xpt2,ypt2, 'c*', markersize=8, color='green')
 plt.text(xpt2, ypt2, '$\\bf{VT-NigerBEAR}$', fontsize=8)
 plt.title("SWARM - A Spacecraft passing over Nigeria | 25/3/2019")
-plt.savefig(r'C:\Users\Usuario\Desktop\Doctorate_INPE\Publication\CAR-NASRDA\Results/path_2532019.png',
+plt.savefig(r'C:/path_2532019.png',
             dpi=200, bbox_inches='tight')
 plt.show()
