@@ -14,7 +14,7 @@ pd.set_option('display.width', desired_width)
 np.set_printoptions(linewidth=desired_width)
 pd.set_option('display.max_columns', 300)
 
-file_name = r'C:\Users\Adebayo\Downloads/projectdata.dta'
+file_name = r'C:/projectdata.dta'
 df = pd.read_stata(file_name)
 print(df.__len__())
 print()
@@ -31,8 +31,8 @@ print(df.describe())
 
 #slicing the data to the needed variables: Subjective wellbeing (psychological distress) and time spent on child care
 needed_variables = df[['ca_scghq1_dv', 'ca_timechcare', 'ca_hhcompb', 'ca_sex', 'ca_age', 'ca_couple']]
-needed_variables.to_csv(r'C:\Users\Adebayo\Desktop\Job_Project/needed_data.csv', index=False)
-data = pd.read_csv(r'C:\Users\Adebayo\Desktop\Job_Project/needed_data.csv')
+needed_variables.to_csv(r'C:/needed_data.csv', index=False)
+data = pd.read_csv(r'C:/needed_data.csv')
 print(data)
 print()
 #print(data['ca_timechcare'].value_counts())
@@ -44,18 +44,18 @@ print(data.dtypes)
 # print()
 #
 ###################################################################################################################
-#subjective wellbeing column wrangling
-# data['ca_scghq1_dv'] = pd.to_numeric(data['ca_scghq1_dv'], errors='coerce').astype('Int64')
-# ca_scghq1_dv_mode = data['ca_scghq1_dv'].mode()
-# data['ca_scghq1_dv'].replace({np.nan:ca_scghq1_dv_mode}, inplace=True)
-# data['ca_scghq1_dv'] = data['ca_scghq1_dv'].round(0)
-# print(data)
-#
-# data['ca_timechcare'] = pd.to_numeric(data['ca_timechcare'], errors='coerce').astype('Int64')
-# ca_timechcare_mode = data['ca_timechcare'].mode()
-# data['ca_timechcare'].replace({np.nan:ca_timechcare_mode}, inplace=True)
-# data['ca_timechcare'] = data['ca_timechcare'].round(0)
-# print(data)
+# subjective wellbeing column wrangling
+data['ca_scghq1_dv'] = pd.to_numeric(data['ca_scghq1_dv'], errors='coerce').astype('Int64')
+ca_scghq1_dv_mode = data['ca_scghq1_dv'].mode()
+data['ca_scghq1_dv'].replace({np.nan:ca_scghq1_dv_mode}, inplace=True)
+data['ca_scghq1_dv'] = data['ca_scghq1_dv'].round(0)
+print(data)
+
+data['ca_timechcare'] = pd.to_numeric(data['ca_timechcare'], errors='coerce').astype('Int64')
+ca_timechcare_mode = data['ca_timechcare'].mode()
+data['ca_timechcare'].replace({np.nan:ca_timechcare_mode}, inplace=True)
+data['ca_timechcare'] = data['ca_timechcare'].round(0)
+print(data)
 ####################################################################################################################
 
 
@@ -79,12 +79,12 @@ data['ca_timechcare_binned'] = pd.cut(data['ca_timechcare'], bins, labels=group_
 print(data.head())
 plt.hist(data['ca_timechcare_binned'])
 sns.histplot(data['ca_timechcare_binned']).set(title = 'Four categories of time spent on child care')
-plt.savefig(r'C:\Users\Adebayo\Desktop\Job_Project\'Binned_Time_Shared.png')
+plt.savefig(r'C:\'Binned_Time_Shared.png')
 plt.title('Four categories of time spent on child care')
 plt.xlabel('Categories')
 plt.ylabel('Frequency')
 plt.grid()
-plt.savefig(r'C:\Users\Adebayo\Desktop\Job_Project\'Binned_Time_Shared_2.png')
+plt.savefig(r'C:\'Binned_Time_Shared_2.png')
 plt.show()
 #
 print()
@@ -102,7 +102,7 @@ data_dummies['ca_age_norm'] = ((data_dummies['ca_age'] - min_norma) / (max_norma
 data_dummies['ca_age_norm'] = data_dummies['ca_age_norm'].round(2)
 sns.pairplot(data_dummies[['ca_scghq1_dv', 'ca_timechcare', 'ca_age']])
 #plt.suptitle('Pairplot of Subjective Wellbeing, Time on Child Care, and Age')
-plt.savefig(r'C:\Users\Adebayo\Desktop\Job_Project\'Pairplot_SubWell_Time_Age.png')
+plt.savefig(r'C:\'Pairplot_SubWell_Time_Age.png')
 plt.show()
 the_correlation = data_dummies.corr()
 print('correlation: ', the_correlation)
@@ -137,7 +137,7 @@ print('Couple value counts: ', data['ca_couple'].value_counts())
 ###############################################Visualizations########################################################
 #sns.boxplot(data['ca_scghq1_dv'])
 sns.boxplot(x = data['ca_timechcare_binned'], y = data['ca_scghq1_dv']).set(title = 'Boxplot of the Binned Time on Child Care vs Subjective Wellbeing')
-plt.savefig(r'C:\Users\Adebayo\Desktop\Job_Project\'Boxplot_Time_SubWell.png')
+plt.savefig(r'C:\'Boxplot_Time_SubWell.png')
 plt.show()
 
 plt.scatter(data['ca_timechcare'], data['ca_age'])
@@ -145,7 +145,7 @@ plt.xlabel('Time_Child_Care')
 plt.ylabel('Age')
 plt.title('Scatterplot of Time on Child Care vs Age')
 plt.grid()
-plt.savefig(r'C:\Users\Adebayo\Desktop\Job_Project\'Scatterplot_Time_Age.png')
+plt.savefig(r'C:\'Scatterplot_Time_Age.png')
 plt.show()
 
 plt.scatter(data['ca_timechcare'], data['ca_scghq1_dv'], color = 'r')
@@ -153,7 +153,7 @@ plt.xlabel('Time_Child_Care')
 plt.ylabel('Subjective Wellbeing')
 plt.title('Scatterplot of Time on Child Care vs Subjective Wellbeing')
 plt.grid()
-plt.savefig(r'C:\Users\Adebayo\Desktop\Job_Project\'Scatterplot_Time_GHQ.png')
+plt.savefig(r'C:\'Scatterplot_Time_GHQ.png')
 plt.show()
 ###############################################Visualizations#######################################################
 
