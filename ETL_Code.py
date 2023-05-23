@@ -84,3 +84,25 @@ if __name__ == '__main__':
         logging.info(f'Pipeline completed in {end_time - start_time}.')
     except Exception as e:
         logging.error(f'Error running data pipeline: {e}')
+        
+        
+        
+# _______________ Application _____________________
+sample_data = [
+    {"name": "John", "age": 25},
+    {"name": "Jane", "age": 30},
+    {"name": "Alice", "age": 28}
+]
+
+if __name__ == '__main__':
+    try:
+        start_time = datetime.now()
+        logging.info('Starting data pipeline...')
+        data = sample_data  # Replace with your sample data
+        df = transform_data(data)
+        load_data(df)
+        end_time = datetime.now()
+        logging.info(f'Pipeline completed in {end_time - start_time}.')
+    except Exception as e:
+        logging.error(f'Error running data pipeline: {e}')
+
