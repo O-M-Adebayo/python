@@ -1,3 +1,24 @@
+# This code sets up a data pipeline to extract data from a source API, transform it using pandas, and load it into a 
+# MySQL database. The pipeline is executed when the script is run as the main module (__name__ == '__main__'). 
+
+# Here's a summary of what the code does:
+
+# It imports the necessary libraries: requests, pandas, mysql.connector, logging, and datetime.
+# It configures logging to log information and errors to a file called pipeline.log.
+# It defines the source URL and parameters for the data extraction.
+# It configures the database connection details and table name for data loading.
+# The extract_data() function sends a GET request to the source URL with the specified parameters, 
+# retrieves the JSON response, and logs the number of records retrieved.
+# The transform_data() function takes the extracted data, converts it into a pandas DataFrame, and returns it.
+# The load_data() function establishes a connection to the MySQL database, creates a table (if it doesn't exist),
+# and inserts the data from the DataFrame into the table row by row.
+# The __name__ == '__main__' condition ensures that the data pipeline is executed only when the script is run directly,
+# not when imported as a module.
+# The main code block executes the data pipeline by calling the extract_data(), transform_data(),
+# and load_data() functions sequentially, measuring the execution time, and logging the completion status.
+
+# ________________ ETL _______________________
+
 import requests
 import pandas as pd
 import mysql.connector
